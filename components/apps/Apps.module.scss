@@ -1,0 +1,204 @@
+@use "@/styles/theme/components";
+@use "@/styles/theme/breakpoints" as *;
+@use "@/styles/theme/variables" as *;
+
+$bg: #f5f5f7;
+%general {
+  background-color: $co-bg-light;
+  @include md {
+    margin-inline: auto;
+    background-color: $co-bg-light;
+    padding-inline: 5%;
+  }
+}
+
+.apps {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-block: 2em;
+  gap: 0em;
+  @include md {
+    gap: 2.5em;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  @extend %general;
+  &__content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+    @include md {
+      flex-basis: 50%;
+    }
+  }
+  &__image {
+    position: relative;
+    min-height: 400px;
+    width: 100%;
+
+    @include md {
+      flex-grow: 1;
+      margin: 1em;
+      flex-basis: 50%;
+      min-height: 100%;
+    }
+  }
+  &__title {
+    font-weight: bold;
+    font-family: "SF Pro Display";
+    margin-block: 0.5em;
+    @include md {
+      font-size: 2.8rem;
+    }
+  }
+  &__meta {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 0.2em;
+    font-size: 1.2rem;
+  }
+  &__button {
+    color: $co-text-light;
+    background: $co-bg-dark;
+    width: max-content;
+    padding: 1.1em 1.5em;
+    font-weight: bold;
+    font-size: 1em;
+    margin-inline: auto;
+    @extend .button;
+  }
+  &__link {
+    margin-block: 0.5em;
+    color: $co-text-highlight;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.one {
+  overflow: hidden;
+  padding-block: 3em;
+  & > .apps__image {
+    margin-left: 1em;
+  }
+  grid-column: 1/3;
+  background-color: $bg;
+  text-align: center;
+  @include md {
+    padding: 4em;
+    min-height: 300px;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+
+.two {
+  grid-column: 1/3;
+  background-color: $bg;
+  text-align: left;
+  padding: 1em;
+  display: flex;
+  padding-block: 3em;
+  flex-direction: column;
+  gap: 3em;
+  & > .apps__image {
+    min-height: 300px;
+    max-height: 300px;
+    gap: 0;
+  }
+  @include md {
+    padding-inline: 4em;
+    padding-block: 1em;
+    min-height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 2em;
+    & > .apps__image {
+      min-height: 100%;
+    }
+  }
+  &__button {
+    color: $co-text-light;
+    background: $co-bg-dark;
+    width: max-content;
+    padding: 1.1em 1.5em;
+    font-weight: bold;
+    font-size: 1em;
+    @extend .button;
+  }
+}
+.three {
+  grid-column: 1/3;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding-block: 4em;
+  background-color: $bg;
+  text-align: center;
+  @include md {
+    grid-column: 1/2;
+
+    padding-block: 10em;
+    gap: 2em;
+  }
+  &__content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+    @include md {
+      flex-basis: 50%;
+    }
+  }
+  &__photo {
+    overflow: hidden;
+    position: relative;
+    width: 70%;
+
+    margin-inline: auto;
+    @include md {
+      flex-grow: 1;
+      flex-basis: 50%;
+    }
+  }
+  &__title {
+    font-weight: bold;
+    font-family: "SF Pro Display";
+    margin-block: 0.5em;
+    @include md {
+      font-size: 2.8rem;
+    }
+  }
+  &__meta {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 0.2em;
+    font-size: 1.2rem;
+  }
+  &__button {
+    color: $co-text-light;
+    background: $co-text-highlight;
+    width: max-content;
+    font-weight: bold;
+    font-size: 1em;
+    margin-inline: 1em;
+    @extend .button;
+  }
+  &__link {
+    margin-block: 0.5em;
+    color: $co-text-highlight;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+.four {
+  background-color: $bg;
+}

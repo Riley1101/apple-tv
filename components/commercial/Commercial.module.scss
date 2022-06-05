@@ -1,0 +1,144 @@
+@use "@/styles/theme/components";
+@use "@/styles/theme/breakpoints" as *;
+@use "@/styles/theme/variables" as *;
+
+%general {
+  padding: 1em;
+  color: $co-text-dark;
+  background-color: $co-bg-light;
+  @include md {
+    padding-inline: 20%;
+  }
+}
+
+%space {
+  padding: 2em;
+  padding-block-start: 3em;
+  @include md {
+    padding-block-start: 8em;
+  }
+}
+.commercial {
+  @extend %general;
+  &__logo {
+    width: 55px;
+    position: relative;
+    aspect-ratio: 1/1;
+    @include md {
+      width: 95px;
+    }
+  }
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    @extend %space;
+    &__title {
+      font-weight: bold;
+      font-size: 2em;
+      margin-bottom: 0.2em;
+      font-family: "SF Pro Display";
+      @include md {
+        font-size: 4em;
+        font-weight: bold;
+        line-height: 1.2;
+      }
+    }
+    &__description {
+      font-size: $base-font-size;
+      line-height: 1.5;
+      & > br {
+        display: none;
+        @include md {
+          display: block;
+        }
+      }
+      &__link {
+        color: $co-text-highlight;
+        text-decoration: underline;
+        margin-left: 0.5em;
+      }
+    }
+  }
+
+  &__mid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    @extend %space;
+    &__title {
+      font-weight: bold;
+      font-size: 2em;
+      margin-bottom: 0.5em;
+      margin-top: 0em;
+      font-family: "SF Pro Display";
+      & > br {
+        display: none;
+        @include md {
+          display: block;
+        }
+      }
+      @include md {
+        font-size: 2.5em;
+        font-weight: bold;
+        line-height: 1.2;
+      }
+    }
+    &__link {
+      color: $co-text-highlight;
+      margin-left: 0.5em;
+      margin-block: 0.3em;
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.product {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  @extend %space;
+  padding: 1em;
+  padding-block: 0;
+  @include md {
+    display: flex;
+  }
+  &__items {
+    width: 100%;
+    height: 100%;
+    @include md {
+      zoom: 1.5;
+    }
+  }
+}
+
+.companies {
+  display: grid;
+  min-height: 250px;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  gap: 1em;
+  @extend %space;
+  padding: 1em;
+  padding-block: 1em;
+
+  @include md {
+    min-height: 200px;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  &__items {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
+}

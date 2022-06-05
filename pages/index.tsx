@@ -5,6 +5,8 @@ import Pricing from "@/components/pricing";
 import Carousel from "@/components/carousel";
 import AutoSlider from "@/components/slider";
 import Commercial from "@/components/commercial";
+import Faq from "@/components/faq";
+import Apps from "@/components/apps";
 const Home: NextPage = () => {
   return (
     <div>
@@ -13,7 +15,9 @@ const Home: NextPage = () => {
       <Pricing />
       <Carousel />
       <AutoSlider />
-      {/* <Commercial /> */}
+      <Commercial />
+      {/* <Faq /> */}
+      <Apps />
     </div>
   );
 };

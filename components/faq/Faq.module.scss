@@ -1,0 +1,21 @@
+@use "@/styles/theme/components";
+@use "@/styles/theme/breakpoints" as *;
+@use "@/styles/theme/variables" as *;
+
+%general {
+  padding: 1em;
+  color: $co-text-dark;
+  background-color: $co-bg-light;
+  @include md {
+    padding-inline: 20%;
+  }
+}
+
+.faq {
+  @extend %general;
+
+  &__header {
+    text-align: center;
+    font-weight: bold;
+  }
+}
