@@ -1,0 +1,49 @@
+@use "@/styles/theme/components";
+@use "@/styles/theme/breakpoints" as *;
+@use "@/styles/theme/variables" as *;
+
+%general {
+  padding: calc(1em + 0.5vw);
+  color: $co-text-light;
+  @include md {
+    padding-inline: 10%;
+  }
+}
+.pricing {
+  background-color: $co-bg-dark;
+  color: $co-bg-light;
+
+  &__commercial {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    @extend %general;
+    &__text {
+      font-family: "SF Pro Display";
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-block: 0;
+      line-height: 1.5;
+      margin-block: 1rem;
+      @include md {
+        line-height: 1.2;
+        font-size: 4rem;
+        font-weight: bold;
+      }
+    }
+  }
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+    @extend %general;
+    padding-block-end: 10em;
+
+    @include md {
+      height: max-content;
+      flex-direction: row;
+    }
+  }
+}

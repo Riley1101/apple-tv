@@ -1,0 +1,160 @@
+@use "@/styles/theme/components";
+@use "@/styles/theme/breakpoints" as *;
+@use "@/styles/theme/variables" as *;
+
+%general {
+  padding: 1em;
+  color: $co-text-light;
+  @include md {
+    padding-inline: 17%;
+  }
+}
+
+.header {
+  z-index: 1000;
+  display: content;
+  &__top {
+    max-height: 2.7em;
+    width: 100%;
+    background-color: $co-bg-dark;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    @extend %general;
+    &__hamburger {
+      all: unset;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      pointer-events: all;
+      @include md {
+        display: none;
+        pointer-events: none;
+      }
+    }
+    &__navigation {
+      flex-basis: 90%;
+      display: none;
+      pointer-events: none;
+      &__list {
+        padding: 0;
+        font-size: $font-size-sm;
+        color: $co-text-muted;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        justify-content: space-between;
+        gap: 1rem;
+        &__item {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          &:hover {
+            color: $co-text-light;
+          }
+        }
+      }
+      @include md {
+        display: flex;
+        pointer-events: all;
+      }
+    }
+  }
+  &__banner {
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    height: 3.2em;
+    background-color: $co-bg-slate;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @extend %general;
+    &__title {
+      font-family: "SF Pro Display";
+      font-size: $font-size-md;
+    }
+    &__button {
+      @extend .button;
+      &:hover {
+        background-color: darken($co-bg-light, 10%);
+      }
+    }
+  }
+  &__announcement {
+    border-top: 1px solid hsl(0, 0%, 30%);
+    min-height: 3.5em;
+    background-color: $co-bg-slate;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: $co-text-light;
+    justify-content: center;
+    text-align: center;
+    @extend %general;
+    &__text {
+      letter-spacing: 0.2px;
+    }
+    &__link {
+      letter-spacing: 0.2px;
+      cursor: pointer;
+      margin-left: 3px;
+      color: $co-text-highlight;
+    }
+    @include md {
+      height: 3.5em;
+    }
+  }
+
+  &__modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: $co-bg-dark;
+    &__search {
+      padding: 1em;
+      display: flex;
+      @include md {
+        padding-inline: 10%;
+      }
+      &__bar {
+        flex-grow: 1;
+        border-radius: 10px;
+        padding: 0.7em 1em;
+        background-color: $co-bg-slate;
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        & > input {
+          flex-basis: 80%;
+          all: unset;
+          font-size: $font-size-md;
+        }
+      }
+    }
+    &__cancel {
+      all: unset;
+      margin-left: 1em;
+      color: $co-text-highlight;
+    }
+    &__navigation {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-inline: 10%;
+      gap: 1em;
+      &__item {
+        color: $co-text-muted;
+        border-bottom: solid 1px hsl(0, 0%, 20%);
+        padding-bottom: 0.6em;
+        cursor: pointer;
+      }
+    }
+  }
+}

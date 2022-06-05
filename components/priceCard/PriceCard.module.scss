@@ -1,0 +1,42 @@
+@use "@/styles/theme/components";
+@use "@/styles/theme/breakpoints" as *;
+@use "@/styles/theme/variables" as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  &__meta {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+    @include md {
+      font-size: $font-size-lg;
+    }
+  }
+  &__price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    margin-block: 0.3em;
+    @include md {
+      font-size: calc($font-size-lg + 1rem);
+    }
+  }
+  &__description {
+    color: $co-text-muted;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+  &__cta {
+    margin-top: 1.5em;
+    width: max-content;
+    padding: 1em 1.4em;
+    font-weight: bold;
+    @extend .button;
+    @include md {
+      margin-top: 2.5rem;
+      font-size: 0.9rem;
+    }
+  }
+}

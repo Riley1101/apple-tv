@@ -1,0 +1,29 @@
+// theme colors
+$co-bg-slate: hsl(0, 0%, 10%);
+$co-bg-dark: hsl(0, 0%, 0%);
+$co-bg-light: hsl(0, 0%, 100%);
+$co-bg-muted: hsl(0, 0%, 80%);
+
+$co-text-highlight: hsl(209, 100%, 58%);
+$co-text-dark: hsl(0, 0%, 0%);
+$co-text-muted: hsl(220, 1%, 58%);
+$co-text-light: hsl(0, 0%, 100%);
+
+// spacing
+$base-padding: 0.75rem !default;
+$base-margin: 0.75rem !default;
+
+// borders
+$base-border-thickness: 1px !default;
+$base-border-radius: 20px !default;
+
+// box-shadow
+$base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1) !default;
+
+// font sizes
+$base-font-size: 1rem !default;
+$font-size-sm: $base-font-size * 0.75 !default;
+$font-size-md: $base-font-size * 1.2 !default;
+$font-size-lg: $base-font-size * 1.5 !default;
+$font-size-xl: $base-font-size * 2 !default;
+$font-size-xxl: $base-font-size * 3 !default;

@@ -1,0 +1,22 @@
+@use "breakpoints" as *;
+@use "variables" as *;
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  @include md {
+    padding-inline: 15%;
+  }
+}
+
+.button {
+  background-color: $co-bg-light;
+  border: none;
+  border-radius: 5em;
+  padding: 0.5em 1em;
+  font-size: $font-size-sm;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}

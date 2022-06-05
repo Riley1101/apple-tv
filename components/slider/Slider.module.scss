@@ -1,0 +1,119 @@
+@use "@/styles/theme/components";
+@use "@/styles/theme/breakpoints" as *;
+@use "@/styles/theme/variables" as *;
+
+.card {
+  cursor: pointer;
+  position: relative;
+  min-height: 140px;
+  min-width: 200px;
+  border-radius: 10px;
+  margin-inline: 0.5em;
+  @include md {
+    min-height: 200px;
+    min-width: 200px;
+  }
+  & > * {
+    border-radius: 10px;
+  }
+
+  &__backdrop {
+    transition: all;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+    background-color: rgba($color: #000000, $alpha: 0.6);
+  }
+
+  &__cta {
+    transition: all 350ms ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4em 0.8em;
+    gap: 0.2em;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(1em);
+    &__icon {
+      width: 30px;
+      height: 30px;
+    }
+    @extend .button;
+    & > :first-child {
+      flex-basis: 10%;
+      flex-grow: 1;
+    }
+  }
+  &:hover &__cta {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  &:hover &__backdrop {
+    opacity: 1;
+  }
+}
+
+.slider {
+  padding-block: 1em;
+  width: 100%;
+  height: 100%;
+  background-color: $co-bg-dark;
+  overflow: hidden;
+  padding-block: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  &__more {
+    position: relative;
+    margin-block: 1em;
+    margin-block-end: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__cta {
+      transition: all 350ms ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.4em 0.8em;
+      gap: 0.2em;
+      font-weight: bold;
+      transform: translateY(1em);
+      &__icon {
+        width: 30px;
+        height: 30px;
+      }
+      background-color: transparent;
+      color: white;
+      border: solid 1px white;
+      @extend .button;
+      & > :first-child {
+        flex-basis: 10%;
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+.play__pause {
+  all: unset;
+  cursor: pointer;
+  position: absolute;
+  bottom: -20%;
+  right: 2%;
+  color: white;
+  display: grid;
+  border-radius: 50%;
+  place-items: center;
+  &__icon {
+    width: 40px;
+    height: 40px;
+  }
+}

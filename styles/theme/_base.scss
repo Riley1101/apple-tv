@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("/fonts/SF_Pro_Text.ttf");
+}
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("/fonts/SF_Pro_Display.ttf");
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "SF Pro Text", Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}

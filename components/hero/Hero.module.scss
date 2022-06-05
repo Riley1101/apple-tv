@@ -1,0 +1,62 @@
+@use "@/styles/theme/components";
+@use "@/styles/theme/breakpoints" as *;
+@use "@/styles/theme/variables" as *;
+
+%general {
+  padding: 1em;
+  color: $co-text-light;
+  @include md {
+    padding-inline: 10%;
+  }
+}
+
+.hero {
+  @extend %general;
+  width: 100%;
+  height: calc(100vh - 10em);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @include md {
+    height: calc(100vh - 7.5em);
+  }
+  &__content {
+    &__title {
+      margin-block: 2em;
+      font-size: 2.5rem;
+      font-family: "SF Pro Display";
+      font-weight: bold;
+      margin-bottom: 1em;
+      @include md {
+        margin-block: 1em;
+        font-size: 6rem;
+        font-weight: 800;
+        margin-bottom: 0.5em;
+        line-height: 1;
+      }
+      &__break {
+        display: none;
+        @include md {
+          display: block;
+        }
+      }
+    }
+    &__cta {
+      font-size: $font-size-md;
+      padding: 0.9em 1.2em;
+      @extend .button;
+    }
+    &__description {
+      font-size: $font-size-md;
+      margin-block: 2em;
+      display: flex;
+      align-items: center;
+      &__icon {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        margin-inline: 0.2em;
+      }
+    }
+  }
+}

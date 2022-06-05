@@ -4,10 +4,13 @@
 /node_modules
 /.pnp
 .pnp.js
-
+.Identifier
 # testing
 /coverage
-
+node_modules
+.env
+yarn.lock
+.next
 # next.js
 /.next/
 /out/
