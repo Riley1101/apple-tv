@@ -16,7 +16,7 @@ const Home: NextPage = () => {
       <Carousel />
       <AutoSlider />
       <Commercial />
-      {/* <Faq /> */}
+      <Faq />
       <Apps />
     </div>
   );

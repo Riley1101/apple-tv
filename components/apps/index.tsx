@@ -52,6 +52,57 @@ const Apps = (props: Props) => {
           </div>
         </div>
       </div>
+      <div className={styles.apps_alt}>
+        <div className={styles.apps_alt__one}>
+          <div className={styles.apps_alt__img}>
+            <Image
+              alt="Apps"
+              src="/icons/apple_fourk.png"
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
+          <h2 className={styles.apps_alt__description}>
+            A higher defination of TV
+          </h2>
+          <div className={styles.apps_alt__cta}>
+            <button>Buy</button>
+            <a>Learn More {">"} </a>
+          </div>
+          <div className={styles.apps_alt__img__alt}>
+            <Image
+              alt="Apps"
+              src="/icons/tv_and_remote.jpg"
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
+        </div>
+        <div className={styles.apps_alt__one}>
+          <div className={styles.apps_alt__img}>
+            <Image
+              alt="Apps"
+              src="/icons/airplay.png"
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
+          <h2 className={styles.apps_alt__description}>
+            Bring Apple TV + to a screen near you
+          </h2>
+          <div className={styles.apps_alt__cta}>
+            <a>Learn More {">"} </a>
+          </div>
+          <div className={styles.apps_alt__img__alt}>
+            <Image
+              alt="Apps"
+              src="/icons/apple_music.jpg"
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+        </div>
+      </div>
     </>
   );
 };
