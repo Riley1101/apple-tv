@@ -7,6 +7,7 @@ import AutoSlider from "@/components/slider";
 import Commercial from "@/components/commercial";
 import Faq from "@/components/faq";
 import Apps from "@/components/apps";
+import Footer from "@/components/footer";
 const Home: NextPage = () => {
   return (
     <div>
@@ -18,6 +19,7 @@ const Home: NextPage = () => {
       <Commercial />
       <Faq />
       <Apps />
+      <Footer />
     </div>
   );
 };

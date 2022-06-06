@@ -5,6 +5,7 @@
 $bg: #f5f5f7;
 %general {
   background-color: $co-bg-light;
+
   @include md {
     margin-inline: auto;
     background-color: $co-bg-light;
@@ -138,6 +139,7 @@ $bg: #f5f5f7;
   flex-direction: column;
   gap: 1em;
   @extend %general;
+  padding-bottom: 3em;
   @include md {
     flex-direction: row;
     gap: 3em;
