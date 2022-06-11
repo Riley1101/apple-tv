@@ -5,7 +5,7 @@ import { toggle } from "@/state/slices/menuSlices";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState, AppDispatch } from "@/state/store";
 import styles from "@/components/header/Header.module.scss";
-type Props = {};
+import SearchModal from "@/components/searchModal";
 
 const Modal = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -18,15 +18,16 @@ const Modal = () => {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            fill="transparent"
+            className="h-6 w-6"
+            fill="none"
             viewBox="0 0 24 24"
             stroke="#999"
-            strokeWidth="2"
+            strokeWidth={2}
           >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              d="M4 8h16M4 16h16"
+              d="M6 18L18 6M6 6l12 12"
             />
           </svg>
         </button>
@@ -172,10 +173,11 @@ const Modal = () => {
     </div>
   );
 };
-
-export default function Header({}: Props) {
+function Header() {
   const { open: isOpen } = useSelector((state: RootState) => state.menu);
+  const [search, setSearch] = React.useState(false);
   const dispatch: AppDispatch = useDispatch();
+
   return (
     <>
       <div className={styles.header__top}>
@@ -201,6 +203,7 @@ export default function Header({}: Props) {
           <Image alt="Apple" src={"/icons/apple.svg"} width={18} height={18} />
         </Link>
         <nav className={styles.header__top__navigation}>
+          {search && <SearchModal setSearch={setSearch} />}
           <ul className={styles.header__top__navigation__list}>
             <li className={styles.header__top__navigation__list__item}>
               <Link href="/store">
@@ -292,15 +295,16 @@ export default function Header({}: Props) {
                 </span>
               </Link>
             </li>
-            <li className={styles.header__top__navigation__list__item}>
-              <Link href="/search">
-                <Image
-                  alt="Search"
-                  src={"/icons/search.svg"}
-                  width={18}
-                  height={18}
-                />
-              </Link>
+            <li
+              className={styles.header__top__navigation__list__item}
+              onClick={() => setSearch(true)}
+            >
+              <Image
+                alt="Search"
+                src={"/icons/search.svg"}
+                width={18}
+                height={18}
+              />
             </li>
           </ul>
         </nav>
@@ -328,3 +332,5 @@ export default function Header({}: Props) {
     </>
   );
 }
+
+export default Header;

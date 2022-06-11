@@ -1,0 +1,68 @@
+@use "@/styles/theme/components";
+@use "@/styles/theme/breakpoints" as *;
+@use "@/styles/theme/variables" as *;
+
+.search {
+  z-index: 101;
+  position: fixed;
+  width: 45%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  outline: none;
+  &__input {
+    outline: none;
+    background-color: $co-bg-dark;
+    max-height: 2.7em;
+    min-height: 2.7em;
+    display: flex;
+    align-items: center;
+    padding-inline: 1em;
+
+    gap: 1em;
+    & > input {
+      background: transparent;
+      border: none;
+      outline: none;
+      font-size: 1.2em;
+      color: white;
+      display: flex;
+      width: 100%;
+    }
+    & > button {
+      all: unset;
+      cursor: pointer;
+    }
+  }
+  &__result {
+    background-color: white;
+    color: $co-text-dark;
+    padding: 1em 0em;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    & > p {
+      font-size: 0.7em;
+      color: $co-text-muted;
+      font-weight: bold;
+      padding-inline: 4.5em;
+    }
+  }
+  &__list {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    &__item {
+      color: $co-text-muted;
+      font-size: 0.8em;
+      cursor: pointer;
+      padding-inline: 5em;
+      padding-block: 0.45em;
+      &:hover {
+        background-color: rgba(128, 128, 128, 0.179);
+        color: $co-text-highlight;
+      }
+    }
+  }
+}

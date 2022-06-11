@@ -8,9 +8,12 @@ import Commercial from "@/components/commercial";
 import Faq from "@/components/faq";
 import Apps from "@/components/apps";
 import Footer from "@/components/footer";
+import Meta from "@/components/meta";
+
 const Home: NextPage = () => {
   return (
     <div>
+      <Meta />
       <Background />
       <Hero />
       <Pricing />
