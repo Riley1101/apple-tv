@@ -44,6 +44,7 @@
     &__cta {
       font-size: $font-size-md;
       padding: 0.9em 1.2em;
+      color: $co-text-dark;
       @extend .button;
     }
     &__description {

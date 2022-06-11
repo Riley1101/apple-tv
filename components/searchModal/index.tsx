@@ -1,19 +1,30 @@
 import React from "react";
 import Image from "next/image";
 import styles from "@/components/searchModal/SearchModal.module.scss";
+import { useModalAnimation } from "@/components/searchModal/useAnimation";
 type Props = {
   setSearch: any;
+  navAnimation: any;
 };
 
 const SearchModal = (props: Props) => {
+  const [input, result] = useModalAnimation();
   return (
     <div className={styles.search}>
-      <div className={styles.search__input}>
+      <div className={styles.search__input} ref={input}>
         <Image alt="Search" src={"/icons/search.svg"} width={18} height={18} />
         <input type="text" placeholder="Search apple.com" />
-        <button onClick={() => props.setSearch(false)}>Close</button>
+        <button
+          onClick={() => {
+            console.log(props.navAnimation);
+            props.navAnimation.seek(0);
+            props.setSearch(false);
+          }}
+        >
+          Close
+        </button>
       </div>
-      <div className={styles.search__result}>
+      <div className={styles.search__result} ref={result}>
         <p>QUICK LINKS</p>
         <ul className={styles.search__list}>
           <li className={styles.search__list__item}>

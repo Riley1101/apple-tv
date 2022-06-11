@@ -1,12 +1,15 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { toggle } from "@/state/slices/menuSlices";
-import { useDispatch, useSelector } from "react-redux";
-import type { RootState, AppDispatch } from "@/state/store";
 import styles from "@/components/header/Header.module.scss";
+import {
+  useBannerAnimation,
+  useNavigationAnimation,
+} from "@/components/header/useAnimation";
 import SearchModal from "@/components/searchModal";
-
+import { toggle } from "@/state/slices/menuSlices";
+import type { AppDispatch, RootState } from "@/state/store";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 const Modal = () => {
   const dispatch: AppDispatch = useDispatch();
   return (
@@ -176,8 +179,10 @@ const Modal = () => {
 function Header() {
   const { open: isOpen } = useSelector((state: RootState) => state.menu);
   const [search, setSearch] = React.useState(false);
+  const [searchAnimation, setSearchAnimation] = React.useState({});
   const dispatch: AppDispatch = useDispatch();
-
+  const banner = useBannerAnimation();
+  const [navAnimation, navRef, icon] = useNavigationAnimation();
   return (
     <>
       <div className={styles.header__top}>
@@ -202,9 +207,12 @@ function Header() {
         <Link href="/">
           <Image alt="Apple" src={"/icons/apple.svg"} width={18} height={18} />
         </Link>
+
         <nav className={styles.header__top__navigation}>
-          {search && <SearchModal setSearch={setSearch} />}
-          <ul className={styles.header__top__navigation__list}>
+          {search && (
+            <SearchModal setSearch={setSearch} navAnimation={navAnimation} />
+          )}
+          <ul className={styles.header__top__navigation__list} ref={navRef}>
             <li className={styles.header__top__navigation__list__item}>
               <Link href="/store">
                 <span
@@ -297,7 +305,10 @@ function Header() {
             </li>
             <li
               className={styles.header__top__navigation__list__item}
-              onClick={() => setSearch(true)}
+              onClick={() => {
+                setSearch(true);
+                navAnimation.play();
+              }}
             >
               <Image
                 alt="Search"
@@ -319,7 +330,7 @@ function Header() {
         </Link>
         <button className={styles.header__banner__button}>Stream now</button>
       </header>
-      <div className={styles.header__announcement}>
+      <div className={styles.header__announcement} ref={banner}>
         <p className={styles.header__announcement__text}>
           Friday Night Baseball, now streaming on Apple TV+.
           <Link href="/more">
