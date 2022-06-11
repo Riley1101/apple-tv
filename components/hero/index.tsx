@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "@/components/hero/Hero.module.scss";
 import Image from "next/image";
-import { motion } from "framer-motion";
 export default function Hero() {
   // frame motion animation for hero
 
