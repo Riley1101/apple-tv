@@ -179,7 +179,6 @@ const Modal = () => {
 function Header() {
   const { open: isOpen } = useSelector((state: RootState) => state.menu);
   const [search, setSearch] = React.useState(false);
-  const [searchAnimation, setSearchAnimation] = React.useState({});
   const dispatch: AppDispatch = useDispatch();
   const banner = useBannerAnimation();
   const [navAnimation, navRef, icon] = useNavigationAnimation();
@@ -307,7 +306,7 @@ function Header() {
               className={styles.header__top__navigation__list__item}
               onClick={() => {
                 setSearch(true);
-                navAnimation.play();
+                navAnimation?.play();
               }}
             >
               <Image

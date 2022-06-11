@@ -26,9 +26,9 @@ export const useBannerAnimation = () => {
 };
 
 export const useNavigationAnimation = () => {
-  const [animation, setAnimation] = useState(null);
+  const [animation, setAnimation] = useState({});
 
-  const element = useRef(null);
+  const element: any = useRef({});
   let icon = useRef(null);
   useEffect(() => {
     let targets = element?.current?.children;
