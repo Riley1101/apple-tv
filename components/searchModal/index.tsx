@@ -16,7 +16,6 @@ const SearchModal = (props: Props) => {
         <input type="text" placeholder="Search apple.com" />
         <button
           onClick={() => {
-            console.log(props.navAnimation);
             props.navAnimation.seek(0);
             props.setSearch(false);
           }}

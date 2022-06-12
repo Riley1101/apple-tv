@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import CarouselCard from "@/components/carouselCard";
 import Slider from "react-slick";
 import styles from "@/components/carousel/Carousel.module.scss";
 type Props = {};
+import { useCarouselAnimation } from "@/components/carousel/useAnimation";
 function PrevArrow(props: any) {
   const { onClick } = props;
   return (
@@ -41,6 +42,7 @@ function NextArrow(props: any) {
 }
 
 const Carousel = (props: Props) => {
+  const [container, scrollPosition] = useCarouselAnimation();
   const [padding, setPadding] = React.useState("20px");
   React.useEffect(() => {
     if (window.innerWidth < 768) {
@@ -48,19 +50,21 @@ const Carousel = (props: Props) => {
     } else {
       setPadding("300px");
     }
-    window.addEventListener("resize", () => {
+    let onResize = () => {
       if (window.innerWidth < 768) {
         setPadding("60px");
       } else {
         setPadding("300px");
       }
-    });
+    };
+    window.addEventListener("resize", onResize);
     return () => {
-      window.removeEventListener("resize", () => {});
+      window.removeEventListener("resize", onResize);
     };
   }, []);
 
   var settings = {
+    className: "big",
     infinite: true,
     dots: false,
     speed: 500,
@@ -70,17 +74,22 @@ const Carousel = (props: Props) => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
   };
+
   return (
-    <div className={styles.carousel}>
-      <Slider {...settings}>
-        <CarouselCard />
-        <CarouselCard />
-        <CarouselCard />
-        <CarouselCard />
-        <CarouselCard />
-        <CarouselCard />
-        <CarouselCard />
-      </Slider>
+    <div className={styles.carousel} ref={container}>
+      {scrollPosition > 480 ? (
+        <Slider {...settings}>
+          <CarouselCard />
+          <CarouselCard />
+          <CarouselCard />
+          <CarouselCard />
+          <CarouselCard />
+        </Slider>
+      ) : (
+        <Slider {...settings}>
+          <CarouselCard />
+        </Slider>
+      )}
     </div>
   );
 };
