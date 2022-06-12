@@ -10,7 +10,7 @@ export const useCarouselAnimation = () => {
       targets: ".big .slick-list .slick-slide ",
       scale: [1.9, 1],
       autoplay: false,
-      duration: 400,
+      duration: 350,
       easing: "linear",
     });
     setAnimation(anim);

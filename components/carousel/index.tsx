@@ -77,7 +77,7 @@ const Carousel = (props: Props) => {
 
   return (
     <div className={styles.carousel} ref={container}>
-      {scrollPosition > 480 ? (
+      {scrollPosition > 400 ? (
         <Slider {...settings}>
           <CarouselCard />
           <CarouselCard />
